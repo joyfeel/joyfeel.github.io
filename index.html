@@ -92,31 +92,15 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p ~/javascript/typeScript-OOP-practices&#10;$ cd ~/javascript/typeScript-OOP-practices&#10;$ touch test.js</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>先到自己的 github上 創一個 repository (假設也叫 <code>typeScript-OOP-practices</code>)<br><img src="/img/git/1.png" alt=""></p>
-</li>
-<li><p>回到 local端的 <code>typeScript-OOP-practices</code> 資料夾，並將此資料夾初始化為 git 的 repository</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/javascript/typeScript-OOP-practices&#10;$ git init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>將資料夾內的所有檔案進行追蹤</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add -A</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>進行第一次 commit</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m &#39;my first commit lol&#39;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接著再回到 github 上，將先前創好的 repository 位址複製起來<br><img src="/img/git/2.png" alt=""></p>
-</li>
-<li><p>新增一個 remote repository</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https://github.com/joyfeel/typeScript-OOP-practices.git&#10;$ git remote -v</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>輸入帳號密碼後，將 local repository 推送到 remote repository，就可上 github 看看是否成功</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Reference: <a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/" target="_blank" rel="external">Adding an existing project to GitHub using the command line</a></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2015/09/30/在本地新增repository並上傳到remote端/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/09/30/在本地新增repository並上傳到remote端/" data-id="cif71172n0006baahkb46gw2o" class="article-share-link">Share</a>
+      <a data-url="http://joyfeel.github.io/2015/09/30/在本地新增repository並上傳到remote端/" data-id="cif714j060006c4ahi3utp3ts" class="article-share-link">Share</a>
       
         <a href="http://joyfeel.github.io/2015/09/30/在本地新增repository並上傳到remote端/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -160,24 +144,15 @@
 <p>#1. Pre-Work#</p>
 <p>安裝必要套件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh vim openjdk-7-jdk g++ libjsoncpp-dev libncurses5 libncurses5-dev fakeroot build-essential kernel-package</span><br></pre></td></tr></table></figure></p>
 <p>建立使用 debugfs 的 folder<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~/debugfs</span><br></pre></td></tr></table></figure></p>
-<p>#2. Build kernel image#<br>下載好後，以 linux-4.0 為例，進到 linux-4.0 資料夾內<br>調整所需要的 build in or module 選項<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make menuconfig</span><br></pre></td></tr></table></figure></p>
-<p>清除後，利用 fakeroot 建立 image 與 header file<br>也可在最後加入 -j4表示有4個核心來加快編譯速度<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make-kpkg clean&#10;$ fakeroot make-kpkg --initrd kernel_image kernel_headers -j4</span><br></pre></td></tr></table></figure></p>
-<p>Build完後，會在上層目錄中產生出 image 與 header file<br>接著進行安裝<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i linux-image-4.0.0_4.0.0-10.00.Custom_amd64.deb&#10;$ sudo dpkg -i linux-headers-4.0.0_4.0.0-10.00.Custom_amd64.deb</span><br></pre></td></tr></table></figure></p>
-<p>Problem: Unable to lock the administration directory (/var/lib/dpkg/) is another process using it?</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo rm /var/lib/apt/lists/lock&#10;$ sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure>
-<p>Problem: Cannot create /etc/apt/apt.conf.d//01autoremove-kernels.dpkg-new: Permission denied<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Download kernel-package_13.003_all.deb&#10;$ sudo dpkg -i kernel-package_13.003_all.deb</span><br></pre></td></tr></table></figure></p>
-<p>#3. Web#<br>架 apache server<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install lamp-server^&#10;$ sudo apt-get install libapache2-mod-auth-mysql</span><br></pre></td></tr></table></figure></p>
-<p>為了讓 www-data 這個 user 可以擁有 root 權限<br>增加一行<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/sudoers&#10;www-data        ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure></p>
-<p>更改 php 設定值<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/php5/apache2/php.ini&#10;upload_max_filesize = 20M&#10;max_file_uploads = 30</span><br></pre></td></tr></table></figure></p>
-<p>複製原本資料 + www資料夾權限設定(不確定)<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo cp -R ~/Desktop/backup/kgcTester/html/nnc .&#10;$ sudo chown -R vli:vli nnc&#10;$ chmod 751 emmc/&#10;$ cd emmc/&#10;$ chmod 754 bjaxSend.html&#10;$ cd statusFiles/&#10;$ chmod 772 CMD.json&#10;$ chmod 770 nncTester&#10;$ chmod 753 uploadFiles/</span><br></pre></td></tr></table></figure></p>
-<p>#4. Eclipse CDT#</p>
-<p>Download Eclipse CDT from eclipse web site</p>
-<p>Instal JSON package<br>C/C++ Build-&gt;Settings-&gt;GCC C++  Compile-&gt;include加入/usr/include/jsoncpp/，/opt/local/include/<br>C/C++ Build-&gt;Settings-&gt;GCC C++  Compile-&gt;Dialect-&gt;Language standard 選   ISO C++11(-std=c++0x) PS:因為這個測試函數用到C++11的語法。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2015/04/20/Web-php-Eclipse-driver/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/04/20/Web-php-Eclipse-driver/" data-id="cif71172p000bbaahabnc04v7" class="article-share-link">Share</a>
+      <a data-url="http://joyfeel.github.io/2015/04/20/Web-php-Eclipse-driver/" data-id="cif714j09000bc4ahj8jbhhz5" class="article-share-link">Share</a>
       
         <a href="http://joyfeel.github.io/2015/04/20/Web-php-Eclipse-driver/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -224,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/03/31/開站大吉XD/" data-id="cif71172k0003baahenchdyvb" class="article-share-link">Share</a>
+      <a data-url="http://joyfeel.github.io/2015/03/31/開站大吉XD/" data-id="cif714j040003c4ah09k6ubiv" class="article-share-link">Share</a>
       
         <a href="http://joyfeel.github.io/2015/03/31/開站大吉XD/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -267,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/03/31/Hello-kappacha/" data-id="cif7117270000baahp7wyahzc" class="article-share-link">Share</a>
+      <a data-url="http://joyfeel.github.io/2015/03/31/Hello-kappacha/" data-id="cif714izv0000c4ahnztvrv5a" class="article-share-link">Share</a>
       
         <a href="http://joyfeel.github.io/2015/03/31/Hello-kappacha/#disqus_thread" class="article-comment-link">Comments</a>
       

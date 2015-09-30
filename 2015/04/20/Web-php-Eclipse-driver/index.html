@@ -15,7 +15,7 @@
 <meta property="og:description" content="這篇是給自己看的工作紀錄，主要是要透過 Web 來選取資訊並傳輸到 linux driver 處
 #1. Pre-Work#
 安裝必要套件1$ sudo apt-get install ssh vim openjdk-7-jdk g++ libjsoncpp-dev libncurses5 libncurses5-dev fakeroot build-essential kernel-packag">
-<meta property="og:updated_time" content="2015-09-30T14:58:35.000Z">
+<meta property="og:updated_time" content="2015-09-30T16:50:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web + php + Eclipse + linux driver">
 <meta name="twitter:description" content="這篇是給自己看的工作紀錄，主要是要透過 Web 來選取資訊並傳輸到 linux driver 處
@@ -96,6 +96,7 @@
 <p>#1. Pre-Work#</p>
 <p>安裝必要套件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh vim openjdk-7-jdk g++ libjsoncpp-dev libncurses5 libncurses5-dev fakeroot build-essential kernel-package</span><br></pre></td></tr></table></figure></p>
 <p>建立使用 debugfs 的 folder<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~/debugfs</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>#2. Build kernel image#<br>下載好後，以 linux-4.0 為例，進到 linux-4.0 資料夾內<br>調整所需要的 build in or module 選項<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make menuconfig</span><br></pre></td></tr></table></figure></p>
 <p>清除後，利用 fakeroot 建立 image 與 header file<br>也可在最後加入 -j4表示有4個核心來加快編譯速度<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make-kpkg clean&#10;$ fakeroot make-kpkg --initrd kernel_image kernel_headers -j4</span><br></pre></td></tr></table></figure></p>
 <p>Build完後，會在上層目錄中產生出 image 與 header file<br>接著進行安裝<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i linux-image-4.0.0_4.0.0-10.00.Custom_amd64.deb&#10;$ sudo dpkg -i linux-headers-4.0.0_4.0.0-10.00.Custom_amd64.deb</span><br></pre></td></tr></table></figure></p>
@@ -113,7 +114,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/04/20/Web-php-Eclipse-driver/" data-id="cif71172p000bbaahabnc04v7" class="article-share-link">Share</a>
+      <a data-url="http://joyfeel.github.io/2015/04/20/Web-php-Eclipse-driver/" data-id="cif714j09000bc4ahj8jbhhz5" class="article-share-link">Share</a>
       
         <a href="http://joyfeel.github.io/2015/04/20/Web-php-Eclipse-driver/#disqus_thread" class="article-comment-link">Comments</a>
       
