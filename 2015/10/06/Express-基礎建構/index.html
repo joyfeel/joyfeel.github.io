@@ -3,17 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Welcome to Joyfeel&#39;s field</title>
+  <title>Express 環境建設 | Welcome to Joyfeel&#39;s field</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to Joyfeel's field">
-<meta property="og:url" content="http://joyfeel.github.io/index.html">
+  <meta name="description" content="Create a folder, named gettingStartedWithExpress1$ mkdir -p ~/javascript/egghead/gettingStartedWithExpress&amp;#10;$ cd ~/javascript/egghead/gettingStartedWithExpress
+Initialization123$ npm init -y$ npm i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express 環境建設">
+<meta property="og:url" content="http://joyfeel.github.io/2015/10/06/Express-基礎建構/index.html">
 <meta property="og:site_name" content="Welcome to Joyfeel's field">
-<meta property="og:description">
+<meta property="og:description" content="Create a folder, named gettingStartedWithExpress1$ mkdir -p ~/javascript/egghead/gettingStartedWithExpress&amp;#10;$ cd ~/javascript/egghead/gettingStartedWithExpress
+Initialization123$ npm init -y$ npm i">
+<meta property="og:image" content="http://joyfeel.github.io/img/express/1.png">
+<meta property="og:updated_time" content="2015-10-06T16:14:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to Joyfeel's field">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Express 環境建設">
+<meta name="twitter:description" content="Create a folder, named gettingStartedWithExpress1$ mkdir -p ~/javascript/egghead/gettingStartedWithExpress&amp;#10;$ cd ~/javascript/egghead/gettingStartedWithExpress
+Initialization123$ npm init -y$ npm i">
   
     <link rel="alternative" href="/atom.xml" title="Welcome to Joyfeel&#39;s field" type="application/atom+xml">
   
@@ -59,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Express-基礎建構" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Express-基礎建構" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/10/06/Express-基礎建構/" class="article-date">
   <time datetime="2015-10-06T14:14:29.000Z" itemprop="datePublished">2015-10-06</time>
@@ -78,8 +81,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/06/Express-基礎建構/">Express 環境建設</a>
+    <h1 class="article-title" itemprop="name">
+      Express 環境建設
     </h1>
   
 
@@ -89,11 +92,19 @@
       
         <p>Create a folder, named <code>gettingStartedWithExpress</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p ~/javascript/egghead/gettingStartedWithExpress&#10;$ cd ~/javascript/egghead/gettingStartedWithExpress</span><br></pre></td></tr></table></figure></p>
 <p>Initialization<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm init -y</span><br><span class="line">$ npm i S express</span><br><span class="line">$ touch index.js</span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/06/Express-基礎建構/#more">Read More</a>
-          </p>
-        
+<a id="more"></a> 
+<p>Add the following code in <code>index.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span> (<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">	res.send (<span class="string">'Hello, World'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.get(<span class="string">'/yo'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">	res.send (<span class="string">'YOO'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = app.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'server running on'</span> + server.address().port);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node index.js</span><br></pre></td></tr></table></figure>
+<p>Open the browser, then you can see the new things on page!</p>
+<p><img src="/img/express/1.png" alt=""></p>
+<p>However, we can develop the <code>express</code> quickly by intall the <code>nodemon</code> module.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -D nodemon</span><br></pre></td></tr></table></figure></p>
+<p>Modify the <code>package.json</code> file. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"gettingStartedWithExpress"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"node index.js"</span>,	<span class="comment">//npm start</span></span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"nodemon index.js"</span>	<span class="comment">//npm run dev</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"keywords"</span>: [],</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"express"</span>: <span class="string">"^4.13.3"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"nodemon"</span>: <span class="string">"^1.7.1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then run it!<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm run dev</span><br></pre></td></tr></table></figure></p>
+<p>Then we can develop the <code>index.js</code> file at any time.</p>
+<hr>
+<p>Reference: <a href="https://egghead.io/lessons/node-js-getting-started-with-express-up-and-running" target="_blank" rel="external">Getting Started with Express - Up and Running</a></p>
+
       
     </div>
     <footer class="article-footer">
@@ -107,204 +118,26 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-在本地新增repository並上傳到remote端" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/09/30/在本地新增repository並上傳到remote端/" class="article-date">
-  <time datetime="2015-09-30T15:04:51.000Z" itemprop="datePublished">2015-09-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/github/">github</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/30/在本地新增repository並上傳到remote端/">在本地新增 repository 並上傳到 remote 端</a>
-    </h1>
+    <a href="/2015/09/30/在本地新增repository並上傳到remote端/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">在本地新增 repository 並上傳到 remote 端</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>假設在 local 端完成一個專案，資料夾名稱叫 <code>typeScript-OOP-practices</code></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p ~/javascript/typeScript-OOP-practices&#10;$ cd ~/javascript/typeScript-OOP-practices&#10;$ touch test.js</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>先到自己的 github上 創一個 repository (假設也叫 <code>typeScript-OOP-practices</code>)<br><img src="/img/git/1.png" alt=""></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/09/30/在本地新增repository並上傳到remote端/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/09/30/在本地新增repository並上傳到remote端/" data-id="ciffivhrp0008ljahghh0jjr3" class="article-share-link">Share</a>
-      
-        <a href="http://joyfeel.github.io/2015/09/30/在本地新增repository並上傳到remote端/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-  
-    <article id="post-Web-php-Eclipse-driver" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/04/20/Web-php-Eclipse-driver/" class="article-date">
-  <time datetime="2015-04-19T16:12:12.000Z" itemprop="datePublished">2015-04-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/工作/">工作</a>
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/20/Web-php-Eclipse-driver/">Web + php + Eclipse + linux driver</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>這篇是給自己看的工作紀錄，主要是要透過 Web 來選取資訊並傳輸到 linux driver 處</p>
-<p>#1. Pre-Work#</p>
-<p>安裝必要套件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh vim openjdk-7-jdk g++ libjsoncpp-dev libncurses5 libncurses5-dev fakeroot build-essential kernel-package</span><br></pre></td></tr></table></figure></p>
-<p>建立使用 debugfs 的 folder<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ~/debugfs</span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            <a href="/2015/04/20/Web-php-Eclipse-driver/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/04/20/Web-php-Eclipse-driver/" data-id="ciffivhrr000dljahmmdvfate" class="article-share-link">Share</a>
-      
-        <a href="http://joyfeel.github.io/2015/04/20/Web-php-Eclipse-driver/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-開站大吉XD" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/31/開站大吉XD/" class="article-date">
-  <time datetime="2015-03-30T16:22:55.000Z" itemprop="datePublished">2015-03-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Others/">Others</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/31/開站大吉XD/">開站大吉XD</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>終於建好網誌啦~~ 費了好一番功夫~~</p>
-<p>最後還是選擇使用 hexo，看起來比較屌lol</p>
-<p>下面兩個指令應該會常用<br>hexo n “New article”<br>hexo d -g</p>
-<p>希望可以藉此把工作以及閒暇時學到的功夫好好紀錄下來</p>
-<p>順便練習一下 git 的使用 哈~</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/03/31/開站大吉XD/" data-id="ciffivhrm0005ljahp3j1awl6" class="article-share-link">Share</a>
-      
-        <a href="http://joyfeel.github.io/2015/03/31/開站大吉XD/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Hello-kappacha" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/31/Hello-kappacha/" class="article-date">
-  <time datetime="2015-03-30T16:00:57.000Z" itemprop="datePublished">2015-03-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Loved/">Loved</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/31/Hello-kappacha/">Hello kappacha~</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Good morning! Little small pig! Meow~~</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://joyfeel.github.io/2015/03/31/Hello-kappacha/" data-id="ciffivhrs000gljahcmzpzsg8" class="article-share-link">Share</a>
-      
-        <a href="http://joyfeel.github.io/2015/03/31/Hello-kappacha/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
+</section>
 </section>
         
           <aside id="sidebar">
@@ -400,11 +233,13 @@
 <script>
   var disqus_shortname = 'joyfeel';
   
+  var disqus_url = 'http://joyfeel.github.io/2015/10/06/Express-基礎建構/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
